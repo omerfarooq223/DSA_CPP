@@ -45,4 +45,4 @@ It includes sorting algorithms, searching algorithms, stack implementations, lin
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/DSA_CPP.git
+   [https://github.com/omerfarooq223/DSA_CPP]
