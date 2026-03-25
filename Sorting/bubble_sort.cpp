@@ -1,14 +1,14 @@
 #include <iostream>
-using namespace std;
+#include <algorithm>
+#include <vector>
 
-void BubbleSort(char arr[], int size) {
+template <typename T>
+void BubbleSort(T arr[], int size) {
     for (int i = 0; i < size - 1; i++) {
         bool swapped = false;
         for (int j = 0; j < size - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
-                char temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                std::swap(arr[j], arr[j + 1]);
                 swapped = true;
             }
         }
@@ -18,15 +18,27 @@ void BubbleSort(char arr[], int size) {
 }
 
 int main() {
-    char arr[] = {'g', 'x', 'z', 'a', 'd', 'c', 'y'};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    char charArr[] = {'g', 'x', 'z', 'a', 'd', 'c', 'y'};
+    int charSize = sizeof(charArr) / sizeof(charArr[0]);
 
-    BubbleSort(arr, size);
+    BubbleSort(charArr, charSize);
 
-    cout << "Sorted characters: ";
-    for (int i = 0; i < size; i++) {
-        cout << arr[i] << " ";
+    std::cout << "Sorted characters: ";
+    for (int i = 0; i < charSize; i++) {
+        std::cout << charArr[i] << " ";
     }
-    cout << endl;
+    std::cout << "\n";
+
+    int intArr[] = {5, 2, 9, 1, 5, 6};
+    int intSize = sizeof(intArr) / sizeof(intArr[0]);
+
+    BubbleSort(intArr, intSize);
+
+    std::cout << "Sorted integers: ";
+    for (int i = 0; i < intSize; i++) {
+        std::cout << intArr[i] << " ";
+    }
+    std::cout << "\n";
+
     return 0;
 }

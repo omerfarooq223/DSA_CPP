@@ -178,3 +178,26 @@ int main() {
             cout << "Enter value to insert: ";
             cin >> value;
             list.insertAfterValue(target, value);
+            break;
+        case 4:
+            list.deleteFromBeginning();
+            break;
+        case 5:
+            list.deleteFromEnd();
+            break;
+        case 6:
+            cout << "Enter value: ";
+            cin >> value;
+            list.deleteByValue(value);
+            break;
+        case 7:
+            list.display();
+            break;
+        case 8:
+            cout << "Exiting.";
+            return 0;
+        default:
+            cout << "Invalid choice. Try again.";
+        }
+    }
+}

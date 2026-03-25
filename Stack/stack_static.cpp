@@ -1,40 +1,36 @@
 #include <iostream>
-using namespace std;
+#include <string>
 
+template <typename T, int Size = 20>
 class Stack {
 public:
-    int arr[20];
+    T arr[Size];
     int top;
-    int max_size;
 
-    Stack() {
-        max_size = 20;
-        top = -1;
-    }
+    Stack() : top(-1) {}
 
-    void push(int data) {
+    void push(T data) {
         if (!isFull()) {
-            top++;
-            arr[top] = data;
-            cout << data << " pushed to stack\n";
+            arr[++top] = data;
+            std::cout << data << " pushed to stack\n";
         } else {
-            cout << "Stack Overflow\n";
+            std::cout << "Stack Overflow\n";
         }
     }
 
-    int pop() {
+    T pop() {
         if (isEmpty()) {
-            cout << "Stack Underflow\n";
-            return -1;
+            std::cout << "Stack Underflow\n";
+            return T();
         }
         return arr[top--];
     }
 
     void peek() {
         if (!isEmpty())
-            cout << "Top element is: " << arr[top] << "\n";
+            std::cout << "Top element is: " << arr[top] << "\n";
         else
-            cout << "Stack is empty\n";
+            std::cout << "Stack is empty\n";
     }
 
     bool isEmpty() {
@@ -42,12 +38,12 @@ public:
     }
 
     bool isFull() {
-        return top == max_size - 1;
+        return top == Size - 1;
     }
 };
 
 int main() {
-    Stack stack;
+    Stack<int, 20> stack;
 
     stack.push(10);
     stack.push(20);
@@ -55,13 +51,13 @@ int main() {
 
     stack.peek();
 
-    cout << stack.pop() << " popped from stack\n";
+    std::cout << stack.pop() << " popped from stack\n";
     stack.peek();
 
     if (stack.isEmpty())
-        cout << "Stack is empty\n";
+        std::cout << "Stack is empty\n";
     else
-        cout << "Stack is not empty\n";
+        std::cout << "Stack is not empty\n";
 
     return 0;
 }

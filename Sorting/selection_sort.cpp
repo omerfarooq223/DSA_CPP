@@ -1,16 +1,16 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
-void selectionSort(int arr[], int n) {
+template <typename T>
+void selectionSort(T arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int minIndex = i;
         for (int j = i + 1; j < n; j++) {
             if (arr[j] < arr[minIndex])
                 minIndex = j;
         }
-        int temp = arr[minIndex];
-        arr[minIndex] = arr[i];
-        arr[i] = temp;
+        std::swap(arr[minIndex], arr[i]);
     }
 }
 
@@ -20,10 +20,22 @@ int main() {
 
     selectionSort(arr, n);
 
-    cout << "Sorted array: ";
+    std::cout << "Sorted array (ints): ";
     for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+        std::cout << arr[i] << " ";
     }
-    cout << endl;
+    std::cout << "\n";
+
+    double dArr[] = {3.5, 1.2, 4.8, 2.1};
+    int dn = sizeof(dArr) / sizeof(dArr[0]);
+
+    selectionSort(dArr, dn);
+
+    std::cout << "Sorted array (doubles): ";
+    for (int i = 0; i < dn; i++) {
+        std::cout << dArr[i] << " ";
+    }
+    std::cout << "\n";
+
     return 0;
 }

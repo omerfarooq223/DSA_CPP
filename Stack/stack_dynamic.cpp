@@ -1,39 +1,42 @@
 #include <iostream>
-using namespace std;
+#include <string>
 
+template <typename T>
 class Stack {
 public:
     int top;
     int capacity;
-    int* arr;
+    T* arr;
 
-    Stack(int size) {
-        capacity = size;
-        arr = new int[capacity];
-        top = -1;
+    Stack(int size) : top(-1), capacity(size) {
+        arr = new T[capacity];
     }
 
-    void push(int value) {
+    ~Stack() {
+        delete[] arr;
+    }
+
+    void push(T value) {
         if (top >= capacity - 1) {
-            cout << "Stack Overflow\n";
+            std::cout << "Stack Overflow\n";
             return;
         }
         arr[++top] = value;
-        cout << value << " pushed to stack\n";
+        std::cout << value << " pushed to stack\n";
     }
 
-    int pop() {
+    T pop() {
         if (top < 0) {
-            cout << "Stack Underflow\n";
-            return -1;
+            std::cout << "Stack Underflow\n";
+            return T(); // Return default value for type T
         }
         return arr[top--];
     }
 
-    int peek() {
+    T peek() {
         if (top < 0) {
-            cout << "Stack is empty\n";
-            return -1;
+            std::cout << "Stack is empty\n";
+            return T();
         }
         return arr[top];
     }
@@ -41,31 +44,27 @@ public:
     bool isEmpty() {
         return top < 0;
     }
-
-    ~Stack() {
-        delete[] arr;
-    }
 };
 
 int main() {
     int size;
-    cout << "Enter the size of the stack: ";
-    cin >> size;
+    std::cout << "Enter the size of the stack: ";
+    if (!(std::cin >> size)) return 1;
 
-    Stack stack(size);
+    Stack<int> stack(size);
 
     stack.push(10);
     stack.push(20);
     stack.push(30);
 
-    cout << "Top element is: " << stack.peek() << "\n";
-    cout << stack.pop() << " popped from stack\n";
-    cout << "Top element is: " << stack.peek() << "\n";
+    std::cout << "Top element is: " << stack.peek() << "\n";
+    std::cout << stack.pop() << " popped from stack\n";
+    std::cout << "Top element is: " << stack.peek() << "\n";
 
     if (stack.isEmpty())
-        cout << "Stack is empty\n";
+        std::cout << "Stack is empty\n";
     else
-        cout << "Stack is not empty\n";
+        std::cout << "Stack is not empty\n";
 
     return 0;
 }
