@@ -7,7 +7,7 @@ A comprehensive collection of **Data Structures and Algorithms (DSA)** in C++, f
 ## 📂 Project Structure
 
 ```text
-.
+
 ├── 🚀 Modernized Version (C++17 Templates)
 │   ├── bst/                # Binary Search Tree
 │   ├── linked-list/        # Singly Linked List
@@ -69,16 +69,6 @@ Navigate to the `original-semester-codes/` directory and compile manually:
 g++ bst/bst.cpp -o original_bst
 ./original_bst
 ```
-
----
-
-## 🛠️ GitHub Recommendations
-
-### About Section
-> A curated repository of Data Structures and Algorithms in C++. Includes modernized, template-driven implementations alongside original university coursework for reference. Features trees, stacks, linked lists, and sorting/searching algorithms.
-
-### Topics
-`cpp` `dsa` `algorithms` `data-structures` `cpp17` `computer-science` `university-archive` `sorting-algorithms` `searching-algorithms`
 
 ---
 
