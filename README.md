@@ -79,3 +79,5 @@ This is a personal learning archive, but feel free to fork it for your own pract
 
 ## 📝 License
 This project is for educational purposes.
+
+Author: Muhammad Umar Farooq
